@@ -5,6 +5,7 @@ class TestState extends Component {
     state ={
         count : 0,
         sum: 0,
+        name:''
     }
 
     /**
@@ -14,7 +15,9 @@ class TestState extends Component {
     //     this.setState({count:this.state.count+1})
     //     this.setState({sum:this.state.sum+this.state.count})
     // }
-
+    reset = ()=>this.setState({sum:0,count:0})
+    handelChange = name=>event=>this.setState({[name]:event.target.value})
+    handelChangeName = event=>this.setState({name:event.target.value})
     handleOnClicK1 = ()=>{
         /**
          * true
@@ -29,6 +32,17 @@ class TestState extends Component {
             console.log(this.state.count)
             return ({sum:state.sum+state.count})
         })
+
+        /**
+         * wrong
+         */
+        // this.setState((state,props)=>{
+        //     return ({
+        //         count:state.count+1,
+        //         sum:state.sum+state.count
+        //     })
+        // })
+
         /**
          * wrong
          */
@@ -57,8 +71,12 @@ class TestState extends Component {
                 {this.state.count}
                 <br/>
                 {this.state.sum}
-                {/* Pure test is a child component */}
-                <PureTest/>
+                {/* Pure testN is a child component */}
+                <PureTest 
+                handelChange={this.handelChange('name')}
+                // handelChangeName={this.handelChangeName}
+                 reset={this.reset} 
+                 />
             </div>
         );
     }
