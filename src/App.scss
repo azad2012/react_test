@@ -1,17 +1,4 @@
-@function grad($ang: 1turn) {
-    @return linear-gradient(45deg, rgb(12, 134, 128) , rgb(72, 24, 185) );
-  }
-  
-  html {
-    background: grad(var(--ang, 0deg));
-    animation: rot 2s cubic-bezier(.68, -.57, .26, 1.65) infinite;
-    
-    @supports (-ms-user-select: none) {
-      background-image: grad(0turn);
-      animation-name: rot-alt;
-    }
-  }
-  
-  @keyframes rot { to { --ang: 1turn; } }
-  
-  @keyframes rot-alt { to { background-image: grad(); } }
+.filter-group{
+    margin-left: 10px;
+    z-index: 2;
+}
