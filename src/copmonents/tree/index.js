@@ -9,10 +9,10 @@ class Tree extends React.Component {
             firstScroll:false
         }
         this.forwardrefs  = {};
-        this.treeData = [{
-            document_id:0,
-            children:
-                [
+        this.treeData = [
+            {
+                document_id:0,
+                children:[
                     {
                         document_id:1,
                         children:[
@@ -39,7 +39,11 @@ class Tree extends React.Component {
                         ]
                     }
                 ]
-        }]
+            },
+            {
+                document_id:"00",
+            }
+        ]
     }
 
 
@@ -80,18 +84,25 @@ class Tree extends React.Component {
             // );
             // if (data[i].children && data[i].children.length>0 ) { // Sub array found, build structure
                 cc.push(
-                    <div style={{display:"flex"}}>
-                        <hr className="c-conversation_hr" style={{margin:"0",position: "relative",bottom: "10px",left: "18px",zIndex:"1"}}/>
-                        <div className={"filter-group level-" + (level)}>
-                            <div style={{border:"1px solid grey",marginBottom:"10px",backgroundColor:"grey"}}>
-                                {withoutChildren.document_id}     
+                        // <hr className="c-conversation_hr" style={{margin:"0",position: "relative"}}/>
+                        <div style={{display:"flex"}} className={"filter-group level-" + (level)}>
+                            <div className={"connection-" + (level)}>
+                                <hr className="connection" />
                             </div>
-                            {
+                            <div style={{zIndex:"3"}}>
+                                <div style={{border:"1px solid grey",
+                                marginBottom:"10px",
+                                backgroundColor:"grey",
+                                width:"200px"
+                                }}>
+                                    {withoutChildren.document_id}     
+                                </div>
+                                {
                                 data[i].children && data[i].children.length>0 ? this.createTree(data[i].children, level+1) : null
+                                }
+                            </div>
 
-                            }
                         </div>
-                    </div>
                 );
             // } 
 
@@ -104,7 +115,7 @@ class Tree extends React.Component {
 
     render() {
         return (
-            <div className="c-conversation">
+            <div style={{direction:"rtl"}}>
 
                 {
                     this.createTree(this.treeData)
