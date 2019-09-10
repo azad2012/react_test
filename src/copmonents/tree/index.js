@@ -73,21 +73,27 @@ class Tree extends React.Component {
             console.log(i)
             const {children,...withoutChildren} = data[i]
             // console.log(children,withoutChildren,data[i])
-            cc.push(
-                    <div style={{border:"1px solid grey",marginBottom:"10px",zIndex:"2",backgroundColor:"grey"}}>
-                        {withoutChildren.document_id}     
-                    </div>
-            );
-            if (data[i].children && data[i].children.length>0 ) { // Sub array found, build structure
+            // cc.push(
+            //         <div style={{border:"1px solid grey",marginBottom:"10px",backgroundColor:"grey"}}>
+            //             {withoutChildren.document_id}     
+            //         </div>
+            // );
+            // if (data[i].children && data[i].children.length>0 ) { // Sub array found, build structure
                 cc.push(
                     <div style={{display:"flex"}}>
                         <hr className="c-conversation_hr" style={{margin:"0",position: "relative",bottom: "10px",left: "18px",zIndex:"1"}}/>
                         <div className={"filter-group level-" + (level)}>
-                            {this.createTree(data[i].children, level+1)}
+                            <div style={{border:"1px solid grey",marginBottom:"10px",backgroundColor:"grey"}}>
+                                {withoutChildren.document_id}     
+                            </div>
+                            {
+                                data[i].children && data[i].children.length>0 ? this.createTree(data[i].children, level+1) : null
+
+                            }
                         </div>
                     </div>
                 );
-            } 
+            // } 
 
         }
         console.log(cc)
