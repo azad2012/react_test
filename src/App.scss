@@ -1,17 +1,32 @@
-@function grad($ang: 1turn) {
-    @return linear-gradient(45deg, rgb(12, 134, 128) , rgb(72, 24, 185) );
+// html{
+//   // border:1px solid black;
+//   background: linear-gradient(225deg,#5ff6bf,#8964e2);
+//   animation: Animation 5s ease infinite;
+// }
+// @keyframes Animation { 
+//   0%{background-position:10% 0%;transform: rotate(30deg);}
+//   50%{background-position:91% 100%}
+//   100%{background-position:10% 0%}
+// }
+
+.background {
+  // padding:0;margin:0;
+  position: absolute;
+  width: 3000px;
+  height: 3000px;
+  top: -50%;
+  left: -50%;
+  overflow: hidden;
+  background: linear-gradient(225deg,#5ff6bf,#8964e2);
+  animation: Animation infinite 20s linear;
+
+}
+
+@keyframes Animation {
+  from {
+    transform: rotate(0deg);
   }
-  
-  html {
-    background: grad(var(--ang, 0deg));
-    animation: rot 2s cubic-bezier(.68, -.57, .26, 1.65) infinite;
-    
-    @supports (-ms-user-select: none) {
-      background-image: grad(0turn);
-      animation-name: rot-alt;
-    }
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes rot { to { --ang: 1turn; } }
-  
-  @keyframes rot-alt { to { background-image: grad(); } }
+}
