@@ -1,13 +1,4 @@
-// html{
-//   // border:1px solid black;
-//   background: linear-gradient(225deg,#5ff6bf,#8964e2);
-//   animation: Animation 5s ease infinite;
-// }
-// @keyframes Animation { 
-//   0%{background-position:10% 0%;transform: rotate(30deg);}
-//   50%{background-position:91% 100%}
-//   100%{background-position:10% 0%}
-// }
+
 
 .background {
   // padding:0;margin:0;
@@ -22,11 +13,8 @@
 
 }
 
-@keyframes Animation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.filter-group{
+    margin-left: 10px;
+    z-index: 2;
 }
