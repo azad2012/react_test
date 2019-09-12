@@ -1,8 +1,10 @@
+$fontsize : 20;
 .filter-group{
     margin-right: 10px;
     z-index: 2;
 }
 .level-0{
+
     &:last-child{
         // background-color: red;
         .connection-0{
@@ -10,48 +12,88 @@
         }
     }
 }
-.level-1{
-    &:last-child{
-        // background-color: red;
-        .connection-1{
-            display: none;
-        }
-    }
-}
-.level-2{
-    &:last-child{
-        // background-color: red;
-        .connection-2{
-            display: none;
-        }
-    }
-}
-.level-3{
-    &:last-child{
-        // background-color: red;
-        .connection-3{
-            display: none;
-        }
-    }
-}
-.level-4{
-    &:last-child{
-        // background-color: red;
-        .connection-4{
-            display: none;
-        }
-    }
-    // &:first-child{
-    //     // background-color: red;
-    //     .connection-4{
-    //         display: block;
-    //     }
-    // }
-}
+// .level-1{
+//     // &:first-child{
+//     //     background: green;
+//     // }
+//     &:last-child{
+//         // background-color: red;
+//         .connection-1{
+//             display: none;
+//         }
+//     }
+//     &:first-child{
+//         .connection-1{
+//             display: block;
+//             margin-top: -10px;
+//         }
+//     }
+// }
+// .level-2{
+//     &:last-child{
+//         // background-color: red;
+//         .connection-2{
+//             display: none;
+//         }
+//     }
+//     &:first-child{
+//         .connection-2{
+//             display: block;
+//             margin-top: -10px;
+//         }
+//     }
+// }
+// .level-3{
+//     &:last-child{
+//         // background-color: red;
+//         .connection-3{
+//             display: none;
+//         }
+//     }
+//     &:first-child{
+//         .connection-3{
+//             display: block;
+//             margin-top: -10px;
+//         }
+//     }
+// }
+// .level-4{
+
+//     &:last-child{
+//         // background-color: red;
+//         .connection-4{
+//             display: none;
+//             margin-top: 0px;
+//         }
+//     }
+//     &:first-child{
+//         .connection-4{
+//             display: block;
+//             margin-top: -10px;
+//         }
+//     }
+//     &:only-child{
+//         .connection-4{
+//             display: block;
+//             margin-top: -10px;
+//             margin-bottom: 10px;
+//         }
+//     }
+// }
 .connection{
     margin:0;
     position: relative;
-    height:calc(100% + 10px);
+    height:calc(100% - 2px);
     right:5px;
-    bottom: 10px;
+    // bottom: 10px;
+}
+
+.azad{
+    &:first-child{
+        background: green;
+
+    }
+}
+.font-#{$fontsize} {
+    font-size: #{$fontsize}px;
 }

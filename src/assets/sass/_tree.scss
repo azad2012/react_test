@@ -1,0 +1,27 @@
+// @mixin tree($property, $ltr-value, $rtl-value) {
+
+// }
+@for $level from 1 through 4 {
+    .level-#{$level}{
+        &:last-child{
+            // background-color: red;
+            .connection-#{$level}{
+                display: none;
+                margin-top: 0px;
+            }
+        }
+        &:first-child{
+            .connection-#{$level}{
+                display: block;
+                margin-top: -10px;
+            }
+        }
+        &:only-child{
+            .connection-#{$level}{
+                display: block;
+                margin-top: -10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
