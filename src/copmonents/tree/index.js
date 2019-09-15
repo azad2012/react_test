@@ -41,9 +41,6 @@ class Tree extends React.Component {
                         ]
                     }
                 ]
-            },
-            {
-                document_id:"00",
             }
         ]
     }
@@ -120,11 +117,13 @@ class Tree extends React.Component {
 
 
     render() {
+        const {children,...withoutChildren} =this.treeData[0];
+        console.log([withoutChildren,...children]);
         return (
             <div style={{direction:"rtl"}}>
 
                 {
-                    this.createTree(this.treeData)
+                    this.createTree([withoutChildren,...children])
                 }
             </div>
         );
