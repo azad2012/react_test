@@ -6,6 +6,7 @@ import Gradient from './copmonents/gradient';
 import './App.scss';
 import Tree from './copmonents/tree';
 import CssCopmonent from './copmonents/css';
+import Editor from './copmonents/Editor';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/gradient" component={TableComponent} />
           <Route path="/tree" component={Tree} />
           <Route path="/css" component={CssCopmonent} />
+          <Route path="/editor" component={Editor} />
         </Switch>
       </BrowserRouter>
       {/* <TestState/> */}
