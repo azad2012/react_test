@@ -1,9 +1,15 @@
 
 @import "resetList";
 @import "tree";
+@import "editor";
 .nav {
     ul{
         @include horizontal-list;
     }
 }
-
+// body{
+//     text-align: right;
+// }
+// .ql-editor {
+//     text-align: right !important;
+// }

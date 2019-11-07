@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactQuill from 'react-quill'; // ES6
+import ReactQuill, { Quill } from 'react-quill'; // ES6
 require('react-quill/dist/quill.snow.css'); // CommonJS
 require('react-quill/dist/quill.bubble.css'); // CommonJS
 
@@ -16,11 +16,20 @@ const CustomButton = () => <span className="octicon octicon-star" />;
 */
 const CustomToolbar = (props) => (
   <div id="toolbar">
-      <select className="ql-size">
+      {/* <select className="ql-size">
           <option value="" >متوسط</option>
           <option  value="small"> کوچک</option>
           <option  value="large">بزرگ</option>
           <option  value="huge">خیلی بزرگ</option>
+      </select> */}
+
+      <select className="ql-size">
+        <option value="extra-small">Size 1</option>
+        <option value="small">Size 2</option>
+        <option value="medium">
+          Size 3
+        </option>
+        <option value="large">Size 4</option>
       </select>
       <select className="ql-header" defaultValue={""} onChange={e => e.persist()}>
           <option value="1" />
@@ -36,9 +45,9 @@ const CustomToolbar = (props) => (
           <select className="ql-color"></select>
       </span>
       <span className="ql-formats">
-      <button className="" value="ordered"></button>
+      <button className="ql-list" value="ordered"></button>
+      <button className="ql-direction" value="rtl"></button>
       <button className="ql-list" value="bullet"></button>
-      <button className="ql-direction"></button>
       <select defaultValue={""} className="ql-align">
           {/* <option selected></option> */}
           <option value=""></option>
@@ -46,21 +55,28 @@ const CustomToolbar = (props) => (
           <option value="right"></option>
           <option value="justify"></option>
       </select>
+
+
     </span>
       <span className="ql-formats">
       <button className="ql-link"></button>
       <button className="ql-image"></button>
     </span>
-      <button onClick={props.customAction}
+      {/* <button onClick={props.customAction}
               type="button"
               className="quick-text-btn">
           متن سریع
-      </button>
+      </button> */}
       {/* <button className="ql-insertStar">
           < CustomButton />
       </button> */}
   </div>
 );
+
+const Size = Quill.import("formats/size");
+Size.whitelist = ["extra-small", "small", "medium", "large"];
+Quill.register(Size, true);
+
 export default class Editor extends React.Component {
   constructor(props) {
     super(props)
@@ -88,7 +104,7 @@ export default class Editor extends React.Component {
     'header',
     'bold', 'italic', 'underline','size','strike', 'blockquote',
     'list', 'bullet', 'indent',
-    'link', 'image','align','color'
+    'link', 'image','align','color',
     ];
   insertStar = (cursorPosition,text)=>{
     let quill  =this.reactQuillRef.getEditor();
@@ -97,12 +113,15 @@ export default class Editor extends React.Component {
 }
   render() {
     return (
+      <>
+      <CustomToolbar/>
       <ReactQuill
-        modules={this.modules}
-        formats={this.formats}
+        modules={Editor.modules}
+        formats={Editor.formats}
         theme="snow" value={this.state.text}
         onChange={this.handleChange} 
       />
+      </>
     )
   }
 }
@@ -137,5 +156,5 @@ Editor.formats = [
   'header','size',
   'bold', 'italic', 'underline', 'strike', 'blockquote',
   'list', 'bullet', 'indent',
-  'link', 'image','align','color'
+  'link', 'image','align','color','direction'
   ];

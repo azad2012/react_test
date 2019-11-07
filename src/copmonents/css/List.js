@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/sass/index.scss'
 
 function List(props) {
     return <div className="nav">

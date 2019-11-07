@@ -4,7 +4,7 @@ import {BrowserRouter,Switch,Route} from "react-router-dom";
 import TableComponent from './copmonents/table';
 import Gradient from './copmonents/gradient';
 import './App.scss';
-import List from './copmonents/scroll';
+import './assets/sass/index.scss'
 import Tree from './copmonents/tree';
 import CssCopmonent from './copmonents/css';
 import Editor from './copmonents/Editor';
