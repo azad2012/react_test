@@ -8,6 +8,7 @@ import './assets/sass/index.scss'
 import Tree from './copmonents/tree';
 import CssCopmonent from './copmonents/css';
 import Editor from './copmonents/Editor';
+import CKEditorComponent from './copmonents/CKEditor';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/gradient" component={TableComponent} />
           <Route path="/tree" component={Tree} />
           <Route path="/css" component={CssCopmonent} />
+          <Route path="/ck-editor" component={CKEditorComponent} />
           <Route path="/editor" component={Editor} />
         </Switch>
       </BrowserRouter>
