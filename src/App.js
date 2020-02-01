@@ -20,6 +20,7 @@ function App() {
           <Route path="/gradient" component={TableComponent} />
           <Route path="/tree" component={Tree} />
           <Route path="/css" component={CssCopmonent} />
+          <Route path="/ck-editor" component={CKEditorComponent} />
           <Route path="/editor" component={Editor} />
           <Route path="/" component={Home} />
         </Switch>
