@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactQuill, { Quill } from 'react-quill'; // ES6
+import { heavyWork, AsyncTest } from '../../utility/heavyWork';
 require('react-quill/dist/quill.snow.css'); // CommonJS
 require('react-quill/dist/quill.bubble.css'); // CommonJS
 
@@ -86,6 +87,23 @@ export default class Editor extends React.Component {
 
   handleChange(value) {
     this.setState({ text: value })
+  }
+  async shouldComponentUpdate(){
+      const res = await AsyncTest();
+      console.log('**')
+      if(res){
+        return true;
+      }else{
+        return false;
+      }
+  }
+  async componentWillMount(){
+    // heavyWork()
+    const res = await AsyncTest();
+    console.log(res)
+  }
+  componentDidMount(){
+    console.log('did mount')
   }
 
     modules = {

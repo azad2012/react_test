@@ -8,6 +8,7 @@ import './assets/sass/index.scss'
 import Tree from './copmonents/tree';
 import CssCopmonent from './copmonents/css';
 import Editor from './copmonents/Editor';
+import Home from './Home';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/tree" component={Tree} />
           <Route path="/css" component={CssCopmonent} />
           <Route path="/editor" component={Editor} />
+          <Route path="/" component={Home} />
         </Switch>
       </BrowserRouter>
       {/* <TestState/> */}
