@@ -97,13 +97,14 @@ class Carousel extends React.Component {
         return(
             <div id="carousel" className="noselect">
                 <div className="arrow arrow-left" onClick={this.leftClick}><i className="fi-arrow-left"></i></div>
-                {this.generateItems()}
 
                 <ReactCSSTransitionGroup 
                     transitionName={this.state.direction}
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                     >
+                {this.generateItems()}
+
                 </ReactCSSTransitionGroup>
                 <div className="arrow arrow-right" onClick={this.rightClick}><i className="fi-arrow-right"></i></div>
             </div>

@@ -10,6 +10,7 @@ import CssCopmonent from './copmonents/css';
 import Editor from './copmonents/Editor';
 import Home from './Home';
 import Carousel from './copmonents/Carousel';
+import Scroll from './copmonents/Scroll';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           {/* <Route path="/ck-editor" component={CKEditorComponent} /> */}
           <Route path="/editor" component={Editor} />
           <Route path="/carousel" component={Carousel} />
+          <Route path="/scroll" component={Scroll} />
           <Route path="/" component={Home} />
         </Switch>
       </BrowserRouter>

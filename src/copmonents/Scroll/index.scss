@@ -1,0 +1,16 @@
+.scroll{
+  height: 320px;
+  overflow-y: scroll;
+  scroll-snap-type : y;
+  & > p{
+    scroll-snap-align: start;
+    margin: 0;
+  }
+  
+}
+.firstItems{
+  opacity: 0.6;
+}
+.middleItems{
+  font-size: 2rem;
+}
