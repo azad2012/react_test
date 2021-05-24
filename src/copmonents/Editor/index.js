@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactQuill, { Quill } from 'react-quill'; // ES6
 import { heavyWork, AsyncTest } from '../../utility/heavyWork';
+import './editor.scss';
+
 require('react-quill/dist/quill.snow.css'); // CommonJS
 require('react-quill/dist/quill.bubble.css'); // CommonJS
-
 
 function insertStar() {
   const cursorPosition = this.quill.getSelection().index;
   this.quill.insertText(cursorPosition, "★");
   this.quill.setSelection(cursorPosition + 1);
+  this.quill.format('direction', 'rtl');
+  this.quill.format('align', 'right');
 }
 const CustomButton = () => <span className="octicon octicon-star" />;
 
@@ -68,9 +71,9 @@ const CustomToolbar = (props) => (
               className="quick-text-btn">
           متن سریع
       </button> */}
-      {/* <button className="ql-insertStar">
+      <button className="ql-insertStar">
           < CustomButton />
-      </button> */}
+      </button>
   </div>
 );
 
@@ -86,6 +89,7 @@ export default class Editor extends React.Component {
   }
 
   handleChange(value) {
+    console.log('**')
     this.setState({ text: value })
   }
   async shouldComponentUpdate(){
@@ -103,7 +107,10 @@ export default class Editor extends React.Component {
     console.log(res)
   }
   componentDidMount(){
-    console.log('did mount')
+    let quill  =this.reactQuillRef.getEditor();
+    quill.format('direction', 'rtl');
+    quill.format('align', 'center');
+    console.log('did mount')  
   }
 
     modules = {
@@ -112,6 +119,7 @@ export default class Editor extends React.Component {
           ['bold', 'italic', 'underline','strike', 'blockquote'],
           [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'},{'align':['center',false,'right','justify']}],
           ['link', 'image'],
+          [{ 'direction': 'rtl' }],
           [{'size':['small',false,'huge',]}],
           ['clean'],[{'color':["#000000", "#e60000", "#ff9900"]}]
         ],
@@ -122,20 +130,28 @@ export default class Editor extends React.Component {
     'header',
     'bold', 'italic', 'underline','size','strike', 'blockquote',
     'list', 'bullet', 'indent',
-    'link', 'image','align','color',
+    'link', 'image','align','color','direction'
     ];
   insertStar = (cursorPosition,text)=>{
     let quill  =this.reactQuillRef.getEditor();
     quill.insertText(cursorPosition,text);
+    
     quill.setSelection(cursorPosition);
-}
+    // quill.format('direction', 'rtl');
+    // quill.format('align', 'right');
+  }
+
+
+
   render() {
     return (
       <>
       <CustomToolbar/>
       <ReactQuill
+        ref={(el) => { this.reactQuillRef = el }}
         modules={Editor.modules}
         formats={Editor.formats}
+        onChange={this.handleChange}
         theme="snow" value={this.state.text}
         onChange={this.handleChange} 
       />
@@ -152,6 +168,7 @@ Editor.modules = {
   toolbar: {
       container: "#toolbar",
       handlers: {
+          "insertStar": insertStar,
           'size': function(value){
               if (value){
                   this.quill.format('size',value);
@@ -165,11 +182,12 @@ Editor.modules = {
       matchVisual: false,
   }
 };
-
+console.log(Editor)
 /*
 * Quill editor formats
 * See https://quilljs.com/docs/formats/
 */
+
 Editor.formats = [
   'header','size',
   'bold', 'italic', 'underline', 'strike', 'blockquote',
