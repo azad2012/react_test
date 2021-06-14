@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../board.css" />
-    <script src="../js/socket.io.js"></script>
+    <!-- <script src="../js/socket.io.js"></script> -->
     <meta name="description" content="{{translations.tagline}}" />
     <meta name="keywords"
       content="{{translations.collaborative_whiteboard}},online,draw,paint,shared,realtime,wbo,whitebophir" />
@@ -19,7 +19,7 @@
     {{#languages}}
     <link rel="alternate" hreflang="{{.}}" href="{{../boardUriComponent}}?lang={{.}}" />
     {{/languages}}
-    <script src="../js/polyfill.min.js"></script>
+    <script src="../js/polyfill.min.js"></script>   
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -34,7 +34,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <div id="board">
+    <!-- <div id="board">
       <svg id="canvas" width="500" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs id="defs"></defs>
         <g id="drawingArea"></g>
@@ -89,29 +89,29 @@
             </label>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </body>
 
   <!-- <script src="../js/index.js" async defer></script> -->
-	<script src="../js/translations.js"></script>
-	<script src="../js/configuration.js"></script>
+	<!-- <script src="../js/translations.js"></script> -->
+	<!-- <script src="../js/configuration.js"></script> -->
 
 	<!-- <script type="application/json" id="translations">{{{ json translations }}}</script> -->
 	<!-- <script type="application/json" id="configuration">{{{ json configuration }}}</script> -->
 	<script src="../js/path-data-polyfill.js"></script>
-	<script src="../js/minitpl.js"></script>
-	<script src="../js/board.js"></script>
-	<script src="../tools/pencil/wbo_pencil_point.js"></script>
-	<script src="../tools/pencil/pencil.js"></script>
-	<script src="../tools/cursor/cursor.js"></script>
-	<script src="../tools/line/line.js"></script>
-	<script src="../tools/rect/rect.js"></script>
-	<script src="../tools/ellipse/ellipse.js"></script>
-	<script src="../tools/text/text.js"></script>
-	<script src="../tools/eraser/eraser.js"></script>
-	<script src="../tools/hand/hand.js"></script>
+	<!-- <script src="../js/minitpl.js"></script> -->
+	<!-- <script src="../js/board.js"></script> -->
+	<!-- <script src="../tools/pencil/wbo_pencil_point.js"></script> -->
+	<!-- <script src="../tools/pencil/pencil.js"></script> -->
+	<!-- <script src="../tools/cursor/cursor.js"></script> -->
+	<!-- <script src="../tools/line/line.js"></script> -->
+	<!-- <script src="../tools/rect/rect.js"></script> -->
+	<!-- <script src="../tools/ellipse/ellipse.js"></script> -->
+	<!-- <script src="../tools/text/text.js"></script> -->
+	<!-- <script src="../tools/eraser/eraser.js"></script> -->
+	<!-- <script src="../tools/hand/hand.js"></script>
 	<script src="../tools/grid/grid.js"></script>
-	<script src="../tools/zoom/zoom.js"></script>
+	<script src="../tools/zoom/zoom.js"></script> -->
 	<script src="../js/canvascolor.js"></script>
 </html>
