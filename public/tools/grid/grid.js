@@ -109,7 +109,7 @@
         "name": "Grid",
         "shortcut": "g",
         "listeners": {},
-        "icon": "tools/grid/icon.svg",
+        "icon": "tools/icons/Grid View.svg",
         "oneTouch": true,
         "onstart": toggleGrid,
         "mouseCursor": "crosshair",

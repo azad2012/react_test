@@ -47,7 +47,8 @@
 			'id': Tools.generateUID("s"), //"s" for straight line
 			'color': Tools.getColor(),
 			'size': Tools.getSize(),
-			'opacity': Tools.getOpacity(),
+			// 'opacity': Tools.getOpacity(),
+			'opacity': 1,
 			'x': x,
 			'y': y
 		}

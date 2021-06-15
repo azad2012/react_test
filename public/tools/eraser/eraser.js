@@ -89,7 +89,7 @@
 			"release": stopErasing,
 		},
 		"draw": draw,
-		"icon": "tools/eraser/icon.svg",
+		"icon": "tools/icons/Earaser.svg",
 		"mouseCursor": "crosshair",
 		"showMarker": true,
 	});

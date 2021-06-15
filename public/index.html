@@ -16,9 +16,9 @@
     <meta property="og:url" content="{{baseUrl}}/boards/{{boardUriComponent}}" />
     <meta property="og:image" content="{{baseUrl}}/preview/{{boardUriComponent}}" />
     <link rel="canonical" href="{{boardUriComponent}}?lang={{language}}" />
-    {{#languages}}
+    <!-- {{#languages}} -->
     <link rel="alternate" hreflang="{{.}}" href="{{../boardUriComponent}}?lang={{.}}" />
-    {{/languages}}
+    <!-- {{/languages}} -->
     <script src="../js/polyfill.min.js"></script>   
   </head>
   <body>
@@ -93,25 +93,6 @@
     </div>
   </body>
 
-  <!-- <script src="../js/index.js" async defer></script> -->
-	<!-- <script src="../js/translations.js"></script> -->
-	<!-- <script src="../js/configuration.js"></script> -->
-
-	<!-- <script type="application/json" id="translations">{{{ json translations }}}</script> -->
-	<!-- <script type="application/json" id="configuration">{{{ json configuration }}}</script> -->
 	<script src="../js/path-data-polyfill.js"></script>
-	<!-- <script src="../js/minitpl.js"></script> -->
-	<!-- <script src="../js/board.js"></script> -->
-	<!-- <script src="../tools/pencil/wbo_pencil_point.js"></script> -->
-	<!-- <script src="../tools/pencil/pencil.js"></script> -->
-	<!-- <script src="../tools/cursor/cursor.js"></script> -->
-	<!-- <script src="../tools/line/line.js"></script> -->
-	<!-- <script src="../tools/rect/rect.js"></script> -->
-	<!-- <script src="../tools/ellipse/ellipse.js"></script> -->
-	<!-- <script src="../tools/text/text.js"></script> -->
-	<!-- <script src="../tools/eraser/eraser.js"></script> -->
-	<!-- <script src="../tools/hand/hand.js"></script>
-	<script src="../tools/grid/grid.js"></script>
-	<script src="../tools/zoom/zoom.js"></script> -->
 	<script src="../js/canvascolor.js"></script>
 </html>

@@ -180,7 +180,7 @@
         "onstart": onstart,
         "onquit": onquit,
         "mouseCursor": "zoom-in",
-        "icon": "tools/zoom/icon.svg",
+        "icon": "tools/icons/Zoom in.svg",
         "helpText": "click_to_zoom",
         "showMarker": true,
     };

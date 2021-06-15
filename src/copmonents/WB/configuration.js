@@ -1,0 +1,7 @@
+export const configuration = {
+  MAX_BOARD_SIZE: 65536,
+  MAX_EMIT_COUNT: 192,
+  MAX_EMIT_COUNT_PERIOD: 4096,
+  BLOCKED_TOOLS: [""],
+  AUTO_FINGER_WHITEOUT: true,
+};

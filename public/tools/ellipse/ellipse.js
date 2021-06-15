@@ -48,7 +48,8 @@
             'id': curUpdate.id,
             'color': Tools.getColor(),
             'size': Tools.getSize(),
-            'opacity': Tools.getOpacity(),
+			// 'opacity': Tools.getOpacity(),
+			'opacity': 1,
             'x': x,
             'y': y,
             'x2': x,
@@ -150,10 +151,10 @@
 
     var circleTool = { //The new tool
         "name": "Ellipse",
-        "icon": "tools/ellipse/icon-ellipse.svg",
+        "icon": "tools/ellipse/Ellipse.svg",
         "secondary": {
             "name": "Circle",
-            "icon": "tools/ellipse/icon-circle.svg",
+            "icon": "tools/icons/Shape tool - Cirlcle.svg",
             "active": false,
             "switch": doUpdate,
         },

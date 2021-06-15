@@ -50,7 +50,8 @@
 			'id': curId,
 			'color': Tools.getColor(),
 			'size': Tools.getSize(),
-			'opacity': Tools.getOpacity(),
+			// 'opacity': Tools.getOpacity(),
+			'opacity': 1,
 			'x': x,
 			'y': y,
 			'x2': x,
@@ -147,12 +148,12 @@
 		},
 		"secondary": {
 			"name": "Square",
-			"icon": "tools/rect/icon-square.svg",
+			"icon": "tools/rect/Rectangle.svg",
 			"active": false,
 		},
 		"draw": draw,
 		"mouseCursor": "crosshair",
-		"icon": "tools/rect/icon.svg",
+		"icon": "tools/icons/Shape tool - Rectangle.svg",
 		"stylesheet": "tools/rect/rect.css"
 	};
 	Tools.add(rectangleTool);

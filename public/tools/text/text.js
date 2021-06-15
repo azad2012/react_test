@@ -68,7 +68,8 @@
 		}
 		curText.rawSize = Tools.getSize();
 		curText.size = parseInt(curText.rawSize * 1.5 + 12);
-		curText.opacity = Tools.getOpacity();
+		// curText.opacity = Tools.getOpacity();
+		curText.opacity = 1;
 		curText.color = Tools.getColor();
 		curText.x = x;
 		curText.y = y + curText.size / 2;
@@ -212,7 +213,7 @@
 		"onquit": onQuit,
 		"draw": draw,
 		"stylesheet": "tools/text/text.css",
-		"icon": "tools/text/icon.svg",
+		"icon": "tools/icons/Text box.svg",
 		"mouseCursor": "text"
 	});
 

@@ -129,12 +129,12 @@
 		},
 		"secondary": {
 			"name": "Mover",
-			"icon": "tools/hand/mover.svg",
+			"icon": "tools/icons/Move tool.svg",
 			"active": false,
 			"switch": switchTool,
 		},
 		"draw": draw,
-		"icon": "tools/hand/hand.svg",
+		"icon": "tools/hand/Hand icon.svg",
 		"mouseCursor": "move",
 		"showMarker": true,
 	};
