@@ -997,6 +997,7 @@ function resizeCanvas(m) {
 	//Enlarge the canvas whenever something is drawn near its border
 	var x = m.x | 0, y = m.y | 0
 	var MAX_BOARD_SIZE = Tools.server_config.MAX_BOARD_SIZE || 65536; // Maximum value for any x or y on the board
+	console.log(x,y,Tools.svg.width.baseVal.value,Tools.svg.height.baseVal.value)
 	if (x > Tools.svg.width.baseVal.value - 2000) {
 		Tools.svg.width.baseVal.value = 1500
 	}

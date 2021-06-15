@@ -11,6 +11,7 @@ import Editor from './copmonents/Editor';
 import Home from './Home';
 import Carousel from './copmonents/Carousel';
 import WB from './copmonents/WB';
+import Scroll from './copmonents/Scroll';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/editor" component={Editor} />
           <Route path="/wb" component={WB} />
           <Route path="/carousel" component={Carousel} />
+          <Route path="/scroll" component={Scroll} />
           <Route path="/" component={Home} />
         </Switch>
       </BrowserRouter>
