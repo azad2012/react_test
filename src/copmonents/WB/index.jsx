@@ -520,23 +520,23 @@ export default class index extends Component {
         lastStateUpdate = Date.now();
 
       window.addEventListener("scroll", function onScroll() {
-        var scale = Tools.getScale();
-        var x = document.documentElement.scrollLeft / scale,
-          y = document.documentElement.scrollTop / scale;
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function updateHistory() {
-          var hash =
-            "#" + (x | 0) + "," + (y | 0) + "," + Tools.getScale().toFixed(1);
-          if (
-            Date.now() - lastStateUpdate > 5000 &&
-            hash !== window.location.hash
-          ) {
-            window.history.pushState({}, "", hash);
-            lastStateUpdate = Date.now();
-          } else {
-            window.history.replaceState({}, "", hash);
-          }
-        }, 100);
+        // var scale = Tools.getScale();
+        // var x = document.documentElement.scrollLeft / scale,
+        //   y = document.documentElement.scrollTop / scale;
+        // clearTimeout(scrollTimeout);
+        // scrollTimeout = setTimeout(function updateHistory() {
+        //   var hash =
+        //     "#" + (x | 0) + "," + (y | 0) + "," + Tools.getScale().toFixed(1);
+        //   if (
+        //     Date.now() - lastStateUpdate > 5000 &&
+        //     hash !== window.location.hash
+        //   ) {
+        //     window.history.pushState({}, "", hash);
+        //     lastStateUpdate = Date.now();
+        //   } else {
+        //     window.history.replaceState({}, "", hash);
+        //   }
+        // }, 100);
       });
 
       function setScrollFromHash() {
@@ -560,12 +560,12 @@ export default class index extends Component {
       var x = m.x | 0,
         y = m.y | 0;
       var MAX_BOARD_SIZE = Tools.server_config.MAX_BOARD_SIZE || 65536; // Maximum value for any x or y on the board
-      console.log(
-        x,
-        y,
-        Tools.svg.width.baseVal.value,
-        Tools.svg.height.baseVal.value
-      );
+      // console.log(
+      //   x,
+      //   y,
+      //   Tools.svg.width.baseVal.value,
+      //   Tools.svg.height.baseVal.value
+      // );
       if (x > Tools.svg.width.baseVal.value - 2000) {
         Tools.svg.width.baseVal.value = 1500;
       }
