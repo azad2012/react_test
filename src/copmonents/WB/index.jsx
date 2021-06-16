@@ -523,7 +523,6 @@ export default class index extends Component {
         var scale = Tools.getScale();
         var x = document.documentElement.scrollLeft / scale,
           y = document.documentElement.scrollTop / scale;
-
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(function updateHistory() {
           var hash =
@@ -541,6 +540,7 @@ export default class index extends Component {
       });
 
       function setScrollFromHash() {
+        console.log('****')
         var coords = window.location.hash.slice(1).split(",");
         var x = coords[0] | 0;
         var y = coords[1] | 0;
@@ -2920,6 +2920,9 @@ export default class index extends Component {
       function zoom(origin, scale) {
         var oldScale = origin.scale;
         var newScale = Tools.setScale(scale);
+        let d = scale*1500
+        document.getElementById("board").style.width = `${d}px`
+        document.getElementById("board").style.height = `${d}px`
         window.scrollTo(
           origin.scrollX + origin.x * (newScale - oldScale),
           origin.scrollY + origin.y * (newScale - oldScale)
@@ -3087,7 +3090,7 @@ export default class index extends Component {
   }
   render() {
     return (
-      <div>
+      <>
         <div id="board">
           <svg
             id="canvas"
@@ -3194,7 +3197,7 @@ export default class index extends Component {
             </ul>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
