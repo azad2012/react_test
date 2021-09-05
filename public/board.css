@@ -6,24 +6,42 @@ svg {
   font-family: Liberation sans, sans-serif;
 }
 
+body {
+  position: relative;
+  background-color: rgb(216, 216, 216);
+}
+#overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: transparent;
+  filter: blur(2px);
+}
 #canvas {
   transform-origin: 0 0;
 }
+#board {
+  overflow: hidden;
+  background-color: white;
+  margin: auto;
+}
 
 #loadingMessage {
-  font-size: 1.5em;
-  background: #eee linear-gradient(#eeeeee, #cccccc);
-  padding: 20px;
-  width: 40%;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 10px;
+  background: #00000082;
   position: fixed;
-  top: 40%;
-  left: 30%;
-  z-index: 1;
-  box-shadow: 0 0 2px #333333;
-  transition: 1s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  display: none;
+  opacity: 0;
+  transition: 0.3s all;
+  justify-content: center;
+  align-items: center;
 }
 
 #loadingMessage.hidden {
@@ -31,9 +49,15 @@ svg {
   opacity: 0;
   z-index: -1;
 }
+#loadingMessage.show {
+  display: flex;
+  opacity: 1;
+  z-index: 10;
+}
 
-#loadingMessage::after {
-  content: "...";
+
+#loadingMessage img {
+  width: 60%;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -45,21 +69,17 @@ svg {
   -ms-overflow-style: none;
   scrollbar-width: none;
   font-size: 16px;
-  border-radius: 0;
-  /* overflow-y: scroll; */
   position: fixed;
-  /* margin-bottom: 30px; */
   left: 12px;
   top: 74px;
   color: black;
-  max-height: 570px;
-  transition-duration: 1s;
+  max-height: 530px;
+  transition-duration: 0.3s;
   cursor: default;
-  /* padding: 10px 0; */
   border-radius: 12px;
-  background-color: rgb(178 178 178);
+  background-color: rgb(178, 178, 178);
   overflow-y: auto;
-  bottom: 10px;
+  bottom: 66px;
 }
 #menu.not-owner {
   padding: 0;
@@ -68,7 +88,7 @@ svg {
 #menu.not-owner #settings {
   display: none;
 }
-#menu.not-owner #tools li:not(#toolID-Hand):not(#toolID-Zoom) {
+#menu.not-owner #tools li {
   display: none;
 }
 
@@ -79,7 +99,7 @@ svg {
   background-color: rgba(100, 200, 255, 0.7);
   width: 6vw;
   height: 2em;
-  transition-duration: 1s;
+  transition-duration: 0.3s;
 }
 
 #menu h2 {
@@ -121,7 +141,7 @@ svg {
   height: 40px;
   line-height: 40px;
   border-radius: 0px;
-  transition-duration: 0.2s;
+  transition-duration: 0.3s;
   padding-inline: 10px;
   min-width: 40px;
   display: flex;
@@ -182,31 +202,26 @@ svg {
 #menu .tool-name {
   text-align: center;
   font-size: 13px;
-  /* margin-right: 20px;
-  margin-left: 20px; */
   margin-bottom: 2.5px;
-  display: inline-block;
   vertical-align: text-bottom;
   position: absolute;
-  background: gray;
+  background: rgb(178, 178, 178);
   color: white;
   padding: 6px;
   border-radius: 6px;
   line-height: initial;
-  top: 50%;
-  transform: translateY(-50%);
   display: none;
   left: 60px;
 }
 #menu .tool-name.slider {
-  display: none;
   width: 150px;
-  height: 30px;
+  height: 40px;
   font-size: 0.9em;
   line-height: 15px;
   vertical-align: top;
   padding: 6px 26px;
-  left: 60px;
+  left: 72px;
+  position: fixed;
 }
 
 #menu .tool .tool-icon.secondaryIcon {
@@ -217,7 +232,7 @@ svg {
   display: none;
 }
 #menu #toolID-Hand .tool-icon.secondaryIcon {
-  display: block;
+  /* display: block; */
   position: absolute;
   bottom: 0px;
   left: 45px;
@@ -250,12 +265,13 @@ input {
 .colorPresetButton {
   width: 30px;
   height: 30px;
-  border: 1px solid black;
+  box-shadow: 0 0 6px #00000052;
   border-radius: 3px;
   display: inline-block;
   margin-right: 6px;
   padding: 0;
   vertical-align: middle;
+  border-radius: 6px;
 }
 
 .rangeChooser {
@@ -303,10 +319,6 @@ circle.opcursor {
   }
 }
 
-#menu .tool:hover .tool-name {
-  display: block;
-}
-
 #menu .tool img:first-child {
   width: 24px;
   margin: auto;
@@ -317,9 +329,10 @@ circle.opcursor {
 /*Chrome*/
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="range"] {
-    overflow: hidden;
+    /* overflow: hidden; */
     -webkit-appearance: none;
     background-color: #9a9a9a;
+    border-radius: 10px;
   }
 
   input[type="range"]::-webkit-slider-runnable-track {
@@ -330,12 +343,22 @@ circle.opcursor {
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    width: 10px;
+    width: 12px;
     -webkit-appearance: none;
-    height: 10px;
+    height: 12px;
     cursor: ew-resize;
     background: #434343;
-    box-shadow: -80px 0 0 80px white;
+    border-radius: 50%;
+    position: relative;
+  }
+  input[type="range"]::-webkit-slider-thumb::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
   }
 }
 /** FF*/
@@ -357,55 +380,160 @@ input[type="range"]::-ms-fill-upper {
   flex-direction: column;
 }
 
-/* Internet Explorer specific CSS */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  #chooseColor {
-    color: transparent;
-  }
-  label.tool-name[for="chooseColor"] {
-    line-height: 10px;
-  }
-}
-#textToolInput {
+.bottomTools {
   position: fixed;
-  top: -1000px; /*Hidden*/
-  left: 80px;
-  width: 500px;
-}
-#textToolInput:focus {
-  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 12px;
+  z-index: 5;
+  justify-content: center;
 }
 
-text {
-  font-family: "Arial", "Helvetica", sans-serif;
+.bottomTools.mobile {
+  bottom: 94px;
+}
+
+.button-container {
+  border-radius: 8px;
+  padding: 10.5px;
+  background-color: rgb(178, 178, 178);
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: 0.15s all;
+  transform-origin: bottom;
+  max-height: 40px;
+}
+.button-container.page-selector-container {
+  position: relative;
+  margin-right: 12px;
+}
+.button-container.page-selector-container select {
+  all: unset;
+}
+.button-container.page-selector-container label {
+  height: 16px;
+  cursor: pointer;
+}
+.button-container.page-selector-container .column {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10.5px 0;
+  background-color: #b2b2b2;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 232ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 155ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: bottom;
+  position: absolute;
+  bottom: 51px;
+  left: 0;
+  right: 0;
+}
+.button-container.page-selector-container .column.show {
+  transform: none;
+  opacity: 1;
+}
+.button-container.page-selector-container .page-item {
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s;
+  padding: 6px 0;
+}
+.button-container.page-selector-container .page-item:hover {
+  background: rgb(119, 119, 119);
+}
+.button-container.page-shower {
+  margin-right: 12px;
+}
+.button-container * {
   user-select: none;
-  -moz-user-select: none;
+}
+.button-container.page-zoom-container {
+  right: 24px;
+  left: unset;
+  transform: none;
 }
 
-#canvas ellipse {
-  fill: none;
-}
-line {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.button-container.page-zoom-container.mobile {
+  bottom: 94px;
 }
 
-path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.button-container.page-zoom-container button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
-#drawingArea rect {
-  fill: none;
+.button-container.page-zoom-container img {
+  width: 16px;
+  height: 16px;
 }
 
-line {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+#page-selector {
+  display: none;
 }
-#board{
-  overflow: hidden;
+
+.page-indicator {
+  width: 70px;
+  text-align: center;
+}
+
+#next-page,
+#prev-page,
+#up-arrow {
+  width: 1em;
+}
+
+#next-page,
+#prev-page {
+  all: unset;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#next-page:disabled,
+#prev-page:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+#prev-page {
+  transform: rotate(-180deg);
+}
+
+#up-arrow {
+  transform: rotate(-90deg);
+  margin-right: 5px;
+}
+#colorPresetSel {
+  position: fixed;
+  left: 72px;
+  background: rgb(178, 178, 178);
+  border-radius: 6px;
+  padding: 6px 26px;
+}
+
+#zoomer {
+  display: none;
+}
+#zoom-percentage {
+  margin: 0 12px;
+}
+
+#zoom-in,
+#zoom-out {
+  user-select: none;
 }
